@@ -62,3 +62,48 @@ variable "contracts" {
     }
   }
 }
+
+# 4 
+
+variable "ap" {
+  description = "Create application profile"
+  type        = string
+  default     = "intranet"
+}
+variable "epgs" {
+  description = "Create epg"
+  type        = map(any)
+  default = {
+    web_epg = {
+      epg   = "web",
+      bd    = "prod_bd",
+      encap = "21"
+    },
+    db_epg = {
+      epg   = "db",
+      bd    = "prod_bd",
+      encap = "22"
+    }
+  }
+}
+variable "epg_contracts" {
+  description = "epg contracts"
+  type        = map(any)
+  default = {
+    terraform_one = {
+      epg           = "web_epg",
+      contract      = "contract_web",
+      contract_type = "provider"
+    },
+    terraform_two = {
+      epg           = "web_epg",
+      contract      = "contract_sql",
+      contract_type = "consumer"
+    },
+    terraform_three = {
+      epg           = "db_epg",
+      contract      = "contract_sql",
+      contract_type = "provider"
+    }
+  }
+}
