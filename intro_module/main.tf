@@ -6,19 +6,19 @@ terraform {
   }
 }
 
-# Configure the provider with your Cisco APIC credentials.
+# Configure the provider with your Cisco APIC credentials for 
+# APIC Username
+# APIC Password
+# APIC URL
 provider "aci" {
-  # APIC Username
   username = var.username
-  # APIC Password
   password = var.password
-  # APIC URL
   url      = var.apic_url
   insecure = true
 }
 
 # Define an ACI Tenant Resource.
 resource "aci_tenant" "terraform_tenant" {
-  name        = "hashicorp_tenant"
-  description = "This tenant is created by terraform"
+  name        = var.tenant
+  description = var.description
 }
