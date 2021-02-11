@@ -11,18 +11,18 @@ terraform {
 -  APIC Password
 - APIC URL
 */
-provider "aci" {
-  username = var.username
-  password = var.password
-  url      = var.apic_url
-  insecure = true
-}
+# provider "aci" {
+#   username = var.username
+#   password = var.password
+#   url      = var.apic_url
+#   insecure = true
+# }
 
-# Define an ACI Tenant Resource. 
-resource "aci_tenant" "terraform_tenant" {
-  name        = var.tenant
-  description = var.description
-}
+# # Define an ACI Tenant Resource. 
+# resource "aci_tenant" "terraform_tenant" {
+#   name        = var.tenant
+#   description = var.description
+# }
 
 # # 2 
 
