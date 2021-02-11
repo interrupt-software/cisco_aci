@@ -28,7 +28,7 @@ variable "subnet" {
 
 # 3
 
-able "filters" {
+variable "filters" {
   description = "Create filters with these names and ports"
   type        = map(any)
   default = {
