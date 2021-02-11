@@ -1,0 +1,24 @@
+# Terraform state files #
+#########################
+*.tfstate
+*.tfstate.backup
+
+# Local Terraform provider files #
+##################################
+.terraform
+.terraform.lock.hcl
+
+# Anything to do with SSH #
+###########################
+.ssh
+
+# MacOS generated files #
+#########################
+.DS_Store
+.DS_Store?
+
+# Sentinel policies dev #
+# which have the mocks  #
+#########################
+policies-dev
+
