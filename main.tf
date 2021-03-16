@@ -24,30 +24,30 @@ resource "aci_tenant" "terraform_tenant" {
   description = var.description
 }
 
-# # 2 
+# 2 
 
-# # ACI Tenant Network Resources
-# # Define an ACI Tenant VRF Resource.
-# resource "aci_vrf" "terraform_vrf" {
-#   tenant_dn   = aci_tenant.terraform_tenant.id
-#   description = "VRF Created Using Terraform"
-#   name        = var.vrf
-# }
+# ACI Tenant Network Resources
+# Define an ACI Tenant VRF Resource.
+resource "aci_vrf" "terraform_vrf" {
+  tenant_dn   = aci_tenant.terraform_tenant.id
+  description = "VRF Created Using Terraform"
+  name        = var.vrf
+}
 
-# # Define an ACI Tenant BD Resource.
-# resource "aci_bridge_domain" "terraform_bd" {
-#   tenant_dn          = aci_tenant.terraform_tenant.id
-#   relation_fv_rs_ctx = aci_vrf.terraform_vrf.id
-#   description        = "BD Created Using Terraform"
-#   name               = var.bd
-# }
+# Define an ACI Tenant BD Resource.
+resource "aci_bridge_domain" "terraform_bd" {
+  tenant_dn          = aci_tenant.terraform_tenant.id
+  relation_fv_rs_ctx = aci_vrf.terraform_vrf.id
+  description        = "BD Created Using Terraform"
+  name               = var.bd
+}
 
-# # Define an ACI Tenant BD Subnet Resource.
-# resource "aci_subnet" "terraform_bd_subnet" {
-#   parent_dn   = aci_bridge_domain.terraform_bd.id
-#   description = "Subnet Created Using Terraform"
-#   ip          = var.subnet
-# }
+# Define an ACI Tenant BD Subnet Resource.
+resource "aci_subnet" "terraform_bd_subnet" {
+  parent_dn   = aci_bridge_domain.terraform_bd.id
+  description = "Subnet Created Using Terraform"
+  ip          = var.subnet
+}
 
 # # 3
 
