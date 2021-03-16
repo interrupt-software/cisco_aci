@@ -6,10 +6,10 @@ terraform {
   }
 }
 
- Configure the provider with your Cisco APIC credentials for 
-- APIC Username
--  APIC Password
-- APIC URL
+#  Configure the provider with your Cisco APIC credentials for 
+# - APIC Username
+# -  APIC Password
+# - APIC URL
 
 provider "aci" {
   username = var.username
