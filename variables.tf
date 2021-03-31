@@ -9,7 +9,7 @@ variable "tenant" {
 
 variable "description" {
   type    = string
-  default = "Workshop Demo on Thu Mar 31, 2021"
+  default = "Workshop Demo on Thu Mar 31, 2022"
 }
 
 # 2
