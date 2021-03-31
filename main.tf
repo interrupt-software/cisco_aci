@@ -24,12 +24,26 @@ resource "aci_tenant" "terraform_tenant" {
   description = var.description
 }
 
+# Define an ACI Tenant Resource. 
+resource "aci_tenant" "terraform_tenant2" {
+  name        = "interrupt-2"
+  description = var.description
+}
+
 # 2 
 
 # ACI Tenant Network Resources
 # Define an ACI Tenant VRF Resource.
 resource "aci_vrf" "terraform_vrf" {
   tenant_dn   = aci_tenant.terraform_tenant.id
+  description = "VRF Created Using Terraform"
+  name        = var.vrf
+}
+
+# ACI Tenant Network Resources
+# Define an ACI Tenant VRF Resource.
+resource "aci_vrf" "terraform_vrf2" {
+  tenant_dn   = aci_tenant.terraform_tenant2.id
   description = "VRF Created Using Terraform"
   name        = var.vrf
 }
